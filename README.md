@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+## useState em React 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+No React, o ``useState`` é um hook que permite adicionar estado a componentes funcionais. O estado é basicamente um objeto que armazena e controla os dados de um componente. O useState é usado para declarar uma variável de estado dentro de um componente.
 
-## Available Scripts
+Para começar, você precisa importar o hook useState do pacote 'react' no início do seu arquivo. Isso pode ser feito assim:
 
-In the project directory, you can run:
+```import React, { useState } from 'react';```
 
-### `npm start`
+Em seguida, você pode usar o useState dentro do corpo do seu componente. Ele retorna um par de valores: a variável de estado atual e uma função para atualizar esse estado. Aqui está um exemplo:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+function MeuComponente() {
+  const [contador, setContador] = useState(0);
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  return (
+    <div>
+      <p>Contador: {contador}</p>
+      <button onClick={() => setContador(contador + 1)}>Incrementar</button>
+    </div>
+  );
+}
 
-### `npm test`
+Neste exemplo, declaramos uma variável de estado chamada contador e a inicializamos com o valor 0 usando o useState(0). Em seguida, usamos essa variável no nosso componente.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Na renderização inicial, o valor de contador será 0. O valor atual da variável de estado pode ser acessado diretamente no código JSX usando {contador}.
 
-### `npm run build`
+O botão "Incrementar" possui um evento onClick que chama a função setContador com o novo valor do contador (incrementado em 1). Isso atualiza o estado e faz com que o componente seja renderizado novamente, exibindo o novo valor do contador.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+É importante ressaltar que a função setContador não atualiza diretamente o valor da variável contador. Em vez disso, ela cria uma nova versão do estado e substitui a anterior. Isso é conhecido como "imutabilidade". O React compara o novo estado com o estado anterior para determinar quais partes do componente precisam ser atualizadas na interface do usuário.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Você pode usar vários useState em um único componente para controlar diferentes variáveis de estado. Cada chamada do useState retorna uma variável de estado separada e sua função de atualização correspondente.
