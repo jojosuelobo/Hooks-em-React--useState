@@ -4,9 +4,14 @@ No React, o ``useState`` é um hook que permite adicionar estado a componentes f
 
 Para começar, você precisa importar o hook useState do pacote 'react' no início do seu arquivo. Isso pode ser feito assim:
 
-```import React, { useState } from 'react';```
+````
+import React, { useState } from 'react';
+````
+
 
 Em seguida, você pode usar o useState dentro do corpo do seu componente. Ele retorna um par de valores: a variável de estado atual e uma função para atualizar esse estado. Aqui está um exemplo:
+
+````
 
 function MeuComponente() {
   const [contador, setContador] = useState(0);
@@ -18,6 +23,7 @@ function MeuComponente() {
     </div>
   );
 }
+````
 
 Neste exemplo, declaramos uma variável de estado chamada contador e a inicializamos com o valor 0 usando o useState(0). Em seguida, usamos essa variável no nosso componente.
 
